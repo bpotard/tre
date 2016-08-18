@@ -33,7 +33,7 @@
 
 /* Error message strings for error codes listed in `tre.h'.  This list
    needs to be in sync with the codes listed there, naturally. */
-static const char *tre_error_messages[] =
+static const char * const tre_error_messages[] =
   { gettext_noop("No error"),				 /* REG_OK */
     gettext_noop("No match"),				 /* REG_NOMATCH */
     gettext_noop("Invalid regexp"),			 /* REG_BADPAT */
