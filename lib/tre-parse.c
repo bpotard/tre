@@ -200,8 +200,8 @@ int tre_isspace_func(tre_cint_t c) { return tre_isspace(c); }
 int tre_isupper_func(tre_cint_t c) { return tre_isupper(c); }
 int tre_isxdigit_func(tre_cint_t c) { return tre_isxdigit(c); }
 
-struct {
-  char *name;
+static const struct {
+  const char *name;
   int (*func)(tre_cint_t);
 } tre_ctype_map[] = {
   { "alnum", &tre_isalnum_func },

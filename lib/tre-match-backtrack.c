@@ -114,7 +114,7 @@ typedef struct tre_backtrack_struct {
 #ifdef TRE_USE_ALLOCA
 #define tre_bt_mem_new		  tre_mem_newa
 #define tre_bt_mem_alloc	  tre_mem_alloca
-#define tre_bt_mem_destroy(obj)	  do { } while (0,0)
+#define tre_bt_mem_destroy(obj)	  do { } while (/*CONSTCOND*/(void)0,0)
 #else /* !TRE_USE_ALLOCA */
 #define tre_bt_mem_new		  tre_mem_new
 #define tre_bt_mem_alloc	  tre_mem_alloc
@@ -600,7 +600,7 @@ tre_tnfa_run_backtrack(const tre_tnfa_t *tnfa, const void *string,
 	  if (stack->prev)
 	    {
 	      DPRINT(("	 backtracking\n"));
-	      if (stack->item.state->assertions && ASSERT_BACKREF)
+	      if (stack->item.state->assertions & ASSERT_BACKREF)
 		{
 		  DPRINT(("  states_seen[%d] = 0\n",
 			  stack->item.state_id));
